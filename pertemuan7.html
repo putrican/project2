@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Jquery</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="container mx-auto">
+        <div class="w-full">
+            <ul>
+                <p>Paragraf atas</p>
+                <li class="study">Belajar</li>
+                <li>Jquery</li>
+                <li>Php</li>
+                <li>Database</li>
+                <div>
+                    <p>Paragraf Dalam</p>
+                    <span>Span Dalam</span>
+                </div>
+                <span>Span luar</span>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        //children
+        // $('ul').children('span').css('color', 'red');
+
+        //find
+        // $('ul').find('span').css('color', 'red');
+
+        //parent
+        $('.study').parent().css('background','green');
+
+    </script>
+</body>
+</html>

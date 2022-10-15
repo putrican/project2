@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan DOM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="container mx-auto">
+        <div class="w-9/12 mx-auto border border0gray-300 rounded mt-5 px-5 py-5">
+            <table class="min-w-full">
+                <thead class="border-b">
+                  <h1 class="font-bold bg-indigo-300">Biodata Siswa Unggul Sma Pelita Nusantara</h1>
+                  <tr>                  
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left" >
+                      No
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left"  >
+                      Name
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left" >
+                      Nik
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left"  >
+                      Phone
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left" >
+                      Age
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left" >
+                        Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="tBody"></tbody>
+              </table>
+                          
+        </div>
+
+        <div class="w-9/12 mx-auto border border0gray-300 rounded mt-10 px-5 py-3">
+            <div>
+                <div class="mb-3">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Input No Siswa</label>
+                    <input type="text" id="no" class="py-2 px-1 text-sm block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter nomor siswa" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Input Nama Siswa</label>
+                    <input type="text" id="name" class="py-2 px-1 text-sm block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter nama siswa" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Input Nik Siswa</label>
+                    <input type="text" id="nik" class="py-2 px-1 text-sm block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter nik siswa" />
+                </div>
+               
+                <div class="mb-3">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Input Phone Siswa</label>
+                    <input type="text" id="phone" class="py-2 px-1 text-sm block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter  phone siswa" />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Input Age Siswa</label>
+                    <input type="text" id="age" class="py-2 px-1 text-sm block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Enter age siswa" />
+                </div>
+                <div>
+                    <button type="button" onclick="addSiswa()" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save Data Siswa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+       
+        // var siswa = [
+        //     {
+        //         name:'dedy',
+        //         nik:'399393'
+        //     },
+        //     {
+        //         name:'putri',
+        //         nik:'399393'
+        //     }
+        // ]
+
+        var students = [
+            {
+                stundent_number:1,
+                stundent_name:'dedy',
+                stundent_nik:'121213',
+                stundent_phone:'081319291808',
+                stundent_age:'28',
+            },
+            {
+                stundent_number:2,
+                stundent_name:'putri',
+                stundent_nik:'84848',
+                stundent_phone:'0837373737',
+                stundent_age:'23',
+            }
+        ]
+
+
+        function renderDefaultStudent(){
+            
+            var tableBody = document.getElementById('tBody')
+
+            var tableBody = $('#tBody') 
+
+            for(var i = 0; i < students.length; i++ ){
+
+                var tableRow = `
+                    <tr class="border">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${students[i].stundent_number}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${students[i].stundent_name}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${students[i].stundent_nik}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${students[i].stundent_phone}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${students[i].stundent_age}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            <a href="javascript:;" class="text-indigo-600 text-xs deleteLink">Hapus</a> |
+                            <a href="javascript:;" class="text-indigo-600 text-xs EditLink">Edit</a>
+                        </td>
+                    </tr>
+                `
+                tableBody.insertAdjacentHTML('beforeend', tableRow)
+            }
+
+        }
+
+        renderDefaultStudent()
+
+
+        function addSiswa(){
+            var no= document.getElementById('no').value
+            var name= document.getElementById('name').value
+            var nik= document.getElementById('nik').value
+            var phone= document.getElementById('phone').value
+            var age= document.getElementById('age').value
+
+            var tableBody = document.getElementById('tBody')
+
+            var tableRow = `
+                    <tr class="border">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${no}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${name}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${nik}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${phone}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${age}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            <a href="javascript:;" class="text-indigo-600 text-xs deleteLink">Hapus</a> | 
+                            <a href="javascript:;" class="text-indigo-600 text-xs EditLink">Edit</a>
+                        </td>
+                    </tr>
+                `
+
+            tableBody.insertAdjacentHTML('beforeend', tableRow)
+            resetForm()
+            readyDeleteDocument()
+        }
+
+
+        function resetForm(){
+            document.getElementById('no').value = ''
+            document.getElementById('name').value = ''
+            document.getElementById('nik').value = ''
+            document.getElementById('phone').value = ''
+            document.getElementById('phone').value = ''
+            document.getElementById('age').value = ''
+        }
+
+        
+        function readyDeleteDocument(){
+            var deleteLink= document.getElementsByClassName('deleteLink')
+            for (i = 0; i < deleteLink.length; ++i) {
+                
+                deleteLink[i].onclick = function(w){
+                    if(confirm('Apakah anda yakin ingin menghapus siswa ini ?')){
+                        w.target.parentElement.parentElement.remove();
+                    }
+                }
+            }
+        }
+
+        readyDeleteDocument()
+
+
+        function readyEditDocument(){
+            var editLink= document.getElementsByClassName('EditLink')
+
+
+            for (i = 0; i < editLink.length; ++i) {
+                editLink[i].onclick = function(w){
+                   var parent =  w.target.parentElement.parentElement
+                   var no =  parent.childNodes[1].childNodes[0].data
+                   var name =  parent.childNodes[3].childNodes[0].data
+                   var nik =  parent.childNodes[5].childNodes[0].data
+                   var phone =  parent.childNodes[7].childNodes[0].data
+                   var age =  parent.childNodes[7].childNodes[0].data
+
+                    document.getElementById('no').value = no
+                    document.getElementById('name').value = name
+                    document.getElementById('nik').value = nik
+                    document.getElementById('phone').value = phone
+                    document.getElementById('age').value = age
+                }
+            }
+        }
+
+        readyEditDocument()
+    </script>
+</body>
+</html>

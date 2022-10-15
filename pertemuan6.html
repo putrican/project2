@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Jquery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="jquery.min.js"></script>
+    <style>
+        .box-warp{
+            background: gray;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 2px solid black;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto">
+        <div class="w-full">
+            <h1 class="text-4xl text-black font-extrabold py-10">Belajar Jquery</h1>
+
+            <div class="box-warp">
+                <div class="box">Semangat</div>
+                <div class="box">Belajar</div>
+                <div class="box">Programer</div>
+            </div>
+           
+        </div>
+
+       <form action="" class="mt-5" >
+        <input type="text" id="inputText">
+        <input type="submit">
+       </form>
+
+        
+    </div>
+
+    <script>
+        //--memastikan semua udah di load--//
+        $(document).ready(function(){
+            $('h1').css('color','red');
+            // $('.box').css('color','blue');
+
+            $('.box:first').css('color','green');
+            $('.box:eq(1)').css('color','blue');
+            $('.box:last').css('color','yellow');
+            
+        
+
+        //event
+        $('h1').click(function(){
+            $('h1').css('color','yellow');
+        });
+
+        $('h1').mouseenter(function(){
+            $('h1').css('color','blue');
+        });
+
+        $('h1').mouseleave(function(){
+            $('h1').css('color','green');
+        });
+
+        $('.box').mouseenter(function(){
+            $('.box').css('color','black');
+        });
+
+        $('.box').mouseenter(function(){
+            $(this).css('color','red');
+        });
+
+
+        //get dan set nilai
+        $('form').submit(function(){
+            var tulisan = $('#inputText').val();
+            $('h1').text( tulisan );
+
+        //mencegah sifat
+        event.preventDefault();
+        });
+
+
+        //--menambahkan dan menghapus--//
+        //append,prepend|after,before
+
+        $('.w-full').append('<div>Hello Semua</div>');
+        $('.w-full').prepend('<div>Hayy Semua</div>');
+        $('.w-full').after('<div>Selamat Pagi</div>');
+        $('.w-full').before('<div>Sukses Selalu</div>');
+
+        //remove dan empty
+        // $('.w-full').remove();-->menghapus semua elemen
+        // $('.w-full').empty();-->menghapus bagian dalam ny saja
+        
+        
+
+
+    });
+    </script>
+</body>
+</html>

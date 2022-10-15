@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="container mx-auto">
+        <div class="w-full bg-gray-200">
+            <h1 class="text-4xl text-black font-extrabold italic py-10">Latihan Array</h1>
+
+            <p id="demo"></p><br>
+            <p id="demo1"></p>
+            <p id="demo2"></p><br>
+            <p id="demo3"></p><br>
+            <p id="demo4"></p>
+            <p id="demo5"></p><br>
+            <p id="demo6"></p>
+            <p id="demo7"></p><br>
+            <p id="demo8"></p>
+            <p id="demo9"></p><br>
+            <p id="demo10"></p>
+            <p id="demo11"></p><br>
+            <p id="demo12"></p>
+            <p id="demo13"></p><br>
+            <p id="demo14"></p><br>
+            <p id="demo15"></p><br>
+            <p id="demo16"></p>
+            <p id="demo17"></p><br>
+            <p id="demo18"></p>
+            <p id="demo19"></p>
+            <p id="demo20"></p><br>
+            <p id="demo21"></p>
+            <p id="demo22"></p><br>
+            <p id="demo23"></p><br>
+            <p id="demo24"></p>
+            <p id="demo25"></p>
+
+
+            
+        </div>
+    </div>
+    <script>
+        
+        const days = ["Jumat", "Sabtu", "Minggu"];
+        document.getElementById("demo").innerHTML = days;
+        
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo1").innerHTML = fruits.join(" * ");
+
+        //Pop=>menghapus elemen terakhir di array
+        const animals = ["Dog", "Cat", "Lion", "Zebra"];
+        document.getElementById("demo2").innerHTML = animals.pop();
+        document.getElementById("demo3").innerHTML = animals;
+
+        //Push=>menambahkan elemen baru
+        const students = ["Budi", "Era", "Ani", "Candi"];
+        document.getElementById("demo4").innerHTML = students ;
+        students .push("Dimas");
+        document.getElementById("demo5").innerHTML = students ;
+
+        
+        //Shift=>menghapus elemen pertama dan menggeser elemen lainnya ke kiri
+        const fruits1 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo6").innerHTML = fruits1.shift();
+        document.getElementById("demo7").innerHTML = fruits1;
+
+
+        //Unshift=>menambahkan elemen baru di awal 
+        const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo8").innerHTML = fruits2;
+        fruits2.unshift("Lemon");
+        document.getElementById("demo9").innerHTML = fruits2;
+
+        //Elemen array diakses menggunakan nomor indexnya
+        const fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo10").innerHTML = fruits3;
+        fruits3[0] = "Kiwi";
+        document.getElementById("demo11").innerHTML = fruits3;
+        
+
+        //Menambahkan elemen baru tanpa menggunakan metode push
+        const fruits4 = ["Banana","Apple","Avocado","Strawberry"];
+        document.getElementById("demo12").innerHTML = fruits4;
+        fruits4[fruits4.length]="Kiwi";
+        document.getElementById("demo13").innerHTML = fruits4;
+
+
+        //Concat=>menggabungkan array
+        const myGirls = ["Anisa","Dina"];
+        const myBoys = ["Andi","Doni","Sahat"];
+        const myChildren = myGirls.concat(myBoys);
+
+        document.getElementById("demo14").innerHTML = myChildren;
+
+        const array1 = ["Cecilie", "Lone"];
+        const array2 = ["Emil", "Tobias", "Linus"];
+        const array3 = ["Robin", "Morgan"];
+
+        const myChildrens = array1.concat(array2, array3); 
+
+        document.getElementById("demo15").innerHTML = myChildrens;
+
+
+        //Splice=>menambahkan item baru ke array----
+        const fruits5 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo16").innerHTML = fruits5;
+
+        fruits5.splice(2,0, "Lemon", "Kiwi");
+        document.getElementById("demo17").innerHTML = fruits5;
+
+
+
+        const fruits6 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo18").innerHTML = "Original Array:<br> " + fruits6;
+        let removed = fruits6.splice(2, 2, "Lemon", "Kiwi"); 
+        document.getElementById("demo19").innerHTML = "New Array:<br>" + fruits6;
+        document.getElementById("demo20").innerHTML = "Removed Items:<br> " + removed; 
+
+
+        //Splice unutk menghapus elemen array
+        const fruits7 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo21").innerHTML = fruits7;
+        fruits7.splice(1, 2);
+        document.getElementById("demo22").innerHTML = fruits7;
+        //mengiris bagian dari array mulai dari array elemen 4
+        const fruits8 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus = fruits8.slice(4);
+        document.getElementById("demo23").innerHTML = fruits8 + "<br><br>" + citrus;
+
+
+        const fruits9 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus1 = fruits9.slice(1,3);
+        document.getElementById("demo24").innerHTML = fruits9 + "<br><br>" + citrus1;
+
+
+        const fruits10 = ["Banana", "Orange", "Apple", "Mango"];
+        let fLen = fruits10.length;
+
+        let text = "<ul>";
+        for (let i = 0; i < fLen; i++) {
+        text += "<li>" + fruits10[i] + "</li>";
+        }
+        text += "</ul>";
+
+        document.getElementById("demo25").innerHTML = text;
+
+
+    </script>
+</body>
+</html>

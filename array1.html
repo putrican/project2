@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Latihan Array</h2>
+    <script>
+        //Menggunakan at
+        const array1 = ["5","10","15","20","25","30"];
+        let index = 2;
+        
+        console.log(array1)
+        console.log(`Using an index of ${index} the item returned is ${array1.at(index)}`);
+        index = -2;
+        console.log(`Using an index of ${index} the item returned is ${array1.at(index)}`);
+
+        //concat=>menggabungkan
+        const arrays = ['a', 'b', 'c'];
+        const array2 = ['d', 'e', 'f'];
+        const array3 = arrays.concat(array2);
+
+        console.log(array3);
+
+
+
+        const letters = ["a", "b", "c"];
+        const numbers = [1, 2, 3];
+
+        const alphaNumeric = letters.concat(numbers);
+        console.log(alphaNumeric);
+
+
+
+        const num1 = [1, 2, 3];
+        const num2 = [4, 5, 6];
+        const num3 = [7, 8, 9];
+
+        const numberss = num1.concat(num2, num3);
+        console.log(numberss);
+
+
+
+        const num5 = [[1]];
+        const num6 = [2, [3]];
+        const numberst = num5.concat(num6);
+
+        console.log(numberst);
+      
+        num5[0].push(4);
+        console.log(numberst);
+
+
+        //-----
+        const obj1 = { 0: 1, 1: 2, 2: 3, length: 3 };
+        const obj2 = { 0: 1, 1: 2, 2: 3, length: 3, [Symbol.isConcatSpreadable]: true };
+        console.log([0].concat(obj1, obj2));
+
+        //----
+        const bag = ['a', 'b', 'c', 'd', 'e'];
+        console.log(bag.copyWithin(0,3,4));
+        console.log(bag.copyWithin(1, 3));
+
+        console.log(Array.from('foo'));
+
+        console.log(Array.from([1, 2, 3], x => x + x));
+
+
+        //entries => mengembalikan objek Array Iterator baru yang berisi pasangan kunci/nilai untuk setiap indeks dalam array.
+        const arr = ['a', 'b', 'c'];
+        const iterator1 = arr.entries();
+
+        console.log(iterator1.next().value);
+        console.log(iterator1.next().value);
+
+        //Metode every() menguji apakah semua elemen dalam array lulus pengujian yang diterapkan oleh fungsi yang disediakan. Ini mengembalikan nilai Boolean.
+
+        const car= (currentValue) => currentValue < 40;
+
+        const ars = [1, 30, 39, 29, 10, 13];
+
+        console.log(ars.every(car))
+
+
+        //fill ---?
+        const objk1= [1, 2, 3, 4];
+
+        console.log(objk1.fill(0, 2, 4));
+        console.log(objk1.fill(5, 1));
+        console.log(objk1.fill(6));
+
+        //filter
+        const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+        const result = words.filter(word => word.length > 8);
+
+        console.log(result);
+
+
+        //find....?
+        const objk2 = [5, 12, 8, 130, 44];
+
+        const found = objk2.find(element => element > 20);
+
+        console.log(found);
+
+        //findIndex
+        const objk3 = [5, 12, 8, 130, 44];
+
+        const isLargeNumber = (element) => element > 13;
+
+        console.log(objk3.findIndex(isLargeNumber));
+
+
+        //findLast
+        const objk4 = [5, 12, 50, 130, 44];
+
+        const founds = objk4.findLast((element) => element > 45);
+
+        console.log(founds);
+
+
+        //findLastIndex
+        const objk5 = [5, 12, 50, 130, 44];
+
+        const number = (element) => element > 45;
+
+        console.log(objk5.findLastIndex(number));
+                
+
+
+        //flat
+        const arr1 = [0, 1, 2, [3, 4]];
+
+        console.log(arr1.flat());
+
+
+        const arr2 = [0, 1, 2, [[[3, 4]]]];
+
+        console.log(arr2.flat(2));
+
+
+        //flatMap
+        const arr3 = [1, 2, [3], [4, 5], 6, []];
+
+        const flattened = arr3.flatMap(num => num);
+
+        console.log(flattened);
+
+        //forEach
+        const arr4= ['a', 'b', 'c'];
+
+        arr4.forEach(element => console.log(element));
+
+
+        //includes=>menentukan apakah sebuah array menyertakan nilai tertentu di antara entri-entrinya
+        const aexx = [1, 2, 3];
+
+        console.log(aexx.includes(5));
+
+        const pets = ['cat', 'dog', 'bat'];
+
+        console.log(pets.includes('cat'));
+
+
+        //indexOf=>mengembalikan indeks pertama di mana elemen tertentu dapat ditemukan dalam array, atau -1 jika tidak ada
+
+        const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+        console.log(beasts.indexOf('bison'));
+        console.log(beasts.indexOf('bison', 2));
+        console.log(beasts.indexOf('giraffe'));
+
+        //join
+        const elements = ['Fire', 'Air', 'Water'];
+
+        console.log(elements.join());
+        
+        console.log(elements.join(''));
+        
+        console.log(elements.join('-'));
+
+
+        //lastIndexOf----
+        const animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo'];
+
+        console.log(animals.lastIndexOf('Dodo'));
+        
+        console.log(animals.lastIndexOf('Tiger'));
+
+
+        //Metode map() membuat larik baru yang diisi dengan hasil pemanggilan fungsi yang disediakan
+        const arrs = [1, 4, 9, 16];
+        
+        const map1 = arrs.map(x => x * 2);
+
+        console.log(map1);
+
+
+        //push=>menambahkan satu atau lebih elemen ke akhir array dan mengembalikan panjang array yang baru
+        const animal = ['pigs', 'goats', 'sheep'];
+
+        const count = animal.push('cows');
+        console.log(count);
+        console.log(animal);
+
+        animal.push('chickens', 'cats', 'dogs');
+        console.log(animal);
+
+        //shift=>menghapus elemen pertama dari array dan mengembalikan elemen yang dihapus itu.
+        const one = [1,2,3];
+
+        const firstElement = one.shift();
+
+        console.log(one);
+        console.log(firstElement);
+
+
+
+        
+        const date = [1,2,3,4,5]
+        //tambah item ke array index terakhir
+        date.push(6,7)
+        console.log(date)
+
+        //tambah item ke array index 0
+        date.splice(0, 0, 'oke')
+        console.log(date)
+
+        //update item on array
+        date[1] = 'kamu'
+        console.log(date)
+
+        
+        // const bilanganGanjil = date.filter(function(x){
+        //     return x % 2 !== 0
+        // })
+        const date1 = [1,2,3,4,5,6,7,8,9,10]
+        const bilanganGanjil = date1.filter(x => x % 2 !== 0)
+
+        const bilanganGenap = date1.filter(x => x % 2 == 0)
+
+        console.log(bilanganGanjil)
+        console.log(bilanganGenap)
+
+
+        const students = [
+
+            {
+                stundent_number:1,
+                stundent_name:'dedy',
+                stundent_nik:'121213',
+                stundent_phone:'081319291808',
+                stundent_age:'28',
+            },        
+            {
+                stundent_number:1,
+                stundent_name:'dedy',
+                stundent_nik:'323232',
+                stundent_phone:'081319291808',
+                stundent_age:'28',
+            },
+            {
+                stundent_number:2,
+                stundent_name:'putri',
+                stundent_nik:'84848',
+                stundent_phone:'0837373737',
+                stundent_age:'23',
+            }
+            ]
+
+        students.splice(0, 0, {
+                stundent_number:3,
+                stundent_name:'Eka',
+                stundent_nik:'83248',
+                stundent_phone:'0837373737',
+                stundent_age:'22',
+        })
+
+        console.log(students)
+
+        const findIndexByNik = students.findIndex(function(x){
+            return x.stundent_nik == '323232'
+        })
+
+        students[findIndexByNik].student_name = 'dedy sirait'
+        console.log(students)
+
+ 
+
+ 
+
+
+
+            
+
+    </script>
+</body>
+</html>
